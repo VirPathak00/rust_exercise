@@ -4,8 +4,8 @@ use super::*;
 //the test.txt file's signature
 #[test]
 fn test1() {
-    let data1 = read("../test.txt").unwrap();
-    let data2 = read("../delta_text.txt").unwrap();
+    let data1 = read("test.txt").unwrap();
+    let data2 = read("delta_text.txt").unwrap();
     let x = compute_signature(&data1, 10);
     let q = compute_deltas(&x, &data2, 10);
     assert_eq!(
@@ -27,8 +27,8 @@ fn test1() {
 //in this test the files are the exact same, so the delta vector should only have matches.
 #[test]
 fn test2() {
-    let data1 = read("../test.txt").unwrap();
-    let data2 = read("../test.txt").unwrap();
+    let data1 = read("test.txt").unwrap();
+    let data2 = read("test.txt").unwrap();
     let x = compute_signature(&data1, 10);
     let q = compute_deltas(&x, &data2, 10);
     assert_eq!(
